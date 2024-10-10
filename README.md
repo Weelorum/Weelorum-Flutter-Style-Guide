@@ -1,3 +1,9 @@
+# Weelorum Swift Style Guide
+
+* [Kotlin](https://github.com/Weelorum/Weelorum-Kotlin-Style-Guide)
+* [Swift](https://github.com/Weelorum/Weelorum-Swift-Style-Guide)
+* [AboutWeelorum](#about-weelorum)
+  
 # Weelorum-Flutter-Style-Guide
 * [Fields](#fields)
 * [Typing](#typing)
@@ -450,3 +456,14 @@ class EmptyOffstageExample extends StatelessWidget {
 }
 
 ```
+
+## About Weelorum
+
+[<img src="https://www.weelorum.com/wp-content/uploads/2018/11/logo.png" alt="www.weelorum.com">][weelorum]
+
+NEWPROJECT are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline. 
+
+Find out more [here][weelorum] and don't hesitate to [contact us][contact]!
+
+[weelorum]: https://www.weelorum.com
+[contact]: https://weelorum.com/contact/
