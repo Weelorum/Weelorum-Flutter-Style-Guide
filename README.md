@@ -2,7 +2,7 @@
 
 * [Kotlin](https://github.com/Weelorum/Weelorum-Kotlin-Style-Guide)
 * [Swift](https://github.com/Weelorum/Weelorum-Swift-Style-Guide)
-* [AboutWeelorum](#about-weelorum)
+* [About Weelorum](#about-weelorum)
   
 # Weelorum-Flutter-Style-Guide
 * [Fields](#fields)
