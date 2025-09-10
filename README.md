@@ -1,26 +1,31 @@
 # Weelorum Swift Style Guide
 
-* [Kotlin](https://github.com/Weelorum/Weelorum-Kotlin-Style-Guide)
-* [Swift](https://github.com/Weelorum/Weelorum-Swift-Style-Guide)
-* [About Weelorum](#about-weelorum)
-  
+-   [Kotlin](https://github.com/Weelorum/Weelorum-Kotlin-Style-Guide)
+-   [Swift](https://github.com/Weelorum/Weelorum-Swift-Style-Guide)
+-   [About Weelorum](#about-weelorum)
+-   [Weelorum Blog](https://weelorum.com/blog/)
+
 # Weelorum-Flutter-Style-Guide
-* [Fields](#fields)
-* [Typing](#typing)
-* [Line](#line)
-* [Params](#params)
-* [Extensions](#extensions)
-* [Comma Putting](#comma-putting)
-* [Attachments](#attachments)
-* [Null Safety](#null-safety)
-* [Code Duplicates](#code-duplicates)
-* [Imports](#imports)
-* [Empty State](#empty-state)
+
+-   [Fields](#fields)
+-   [Typing](#typing)
+-   [Line](#line)
+-   [Params](#params)
+-   [Extensions](#extensions)
+-   [Comma Putting](#comma-putting)
+-   [Attachments](#attachments)
+-   [Null Safety](#null-safety)
+-   [Code Duplicates](#code-duplicates)
+-   [Imports](#imports)
+-   [Empty State](#empty-state)
+-   [Code Examples](#code-examples)
 
 ## Fields
+
 Generally, written in lowerCamelCase, and with final params.
 
-BAD: 
+BAD:
+
 ```dart
 class FieldsModel {
    String ID;
@@ -34,7 +39,9 @@ class FieldsModel {
   });
 }
 ```
+
 GOOD:
+
 ```dart
 final class FieldsModel {
   final String id;
@@ -48,50 +55,67 @@ final class FieldsModel {
   });
 }
 ```
+
 ## Typing
+
 All objects, variebles, lists, etc, must include type
 
-BAD: 
+BAD:
+
 ```dart
 var typingValue = 'typing';
 final typingValue = 'typing';
 ```
+
 GOOD:
+
 ```dart
 const String typingValue = 'typing';
 ```
+
 BAD:
+
 ```dart
 var withoutTypeList = [1,2,3,4];
 ```
+
 GOOD:
+
 ```dart
 List<int> typedList = <int>[1,2,3,4];
 ```
+
 BAD:
+
 ```dart
 void _setElement(){
     final List<String> stringsList = ["1","2","3",];
     final String element = stringsList.firstWhere((e) => e == "1");
   }
 ```
+
 GOOD:
+
 ```dart
 void _setElement(){
     final List<String> stringsList = ["1","2","3",];
     final String element = stringsList.firstWhere((final String e) => e == "1");
   }
 ```
+
 Function & methods typing
 
 BAD:
+
 ```dart
  _setElement(){
     final List<String> stringsList = ["1","2","3",];
     final String element = stringsList.firstWhere((final String e) => e == "1");
   }
 ```
+
 GOOD:
+
 ```dart
 void _setElement(){
     final List<String> stringsList = ["1","2","3",];
@@ -111,20 +135,24 @@ String setElement() {
   }
 ```
 
+## Line
 
-## Line 
 Lines should be no longer than 100 characters long.
 
 ## Params
+
 Prefer final params in methods & functions
 
 BAD:
+
 ```dart
  void nonFinalMethod(String id){
-    
+
   }
 ```
+
 GOOD:
+
 ```dart
   void finalMethod(final String id){
 
@@ -133,9 +161,11 @@ GOOD:
 ```
 
 ## Extensions
-   When you try add string with some symbols or values or some sum of int or double, etc... you must use extensions.
+
+When you try add string with some symbols or values or some sum of int or double, etc... you must use extensions.
 
 BAD:
+
 ```dart
   Widget showText(
     BuildContext context,
@@ -144,7 +174,9 @@ BAD:
     return Text("Total count: $count");
   }
 ```
+
 GOOD:
+
 ```dart
 
 abstract class AppConstantStrings {
@@ -178,9 +210,11 @@ extension StringsExtensions on String {
 ```
 
 ## Comma Putting
+
 You must put comma after every second argue
 
 BAD:
+
 ```dart
 
 void commaBadExample(String one, String, two) {}
@@ -197,7 +231,9 @@ class CommaWidget extends StatelessWidget {
   }
 }
 ```
+
 GOOD:
+
 ```dart
 
   void commaGoodExample(
@@ -224,10 +260,11 @@ class CommaWidget extends StatelessWidget {
 ```
 
 ## Attachments
-You must check bad result in methods and functions and return something, this will remove a lot of attachments 
 
+You must check bad result in methods and functions and return something, this will remove a lot of attachments
 
 BAD:
+
 ```dart
   Future<void> attachmentExample({required final List<String>? exampleList}) async {
     if (exampleList != null && exampleList.isNotEmpty) {
@@ -237,7 +274,9 @@ BAD:
     }
   }
 ```
+
 GOOD:
+
 ```dart
    Future<void> attachmentExample({required final List<String>? exampleList}) async {
     if(exampleList == null || exampleList.isEmpty){
@@ -247,11 +286,14 @@ GOOD:
   }
 
 ```
+
 ## Null Safety
-Avoid using "!" in nullable variables, objects, and even if you check that variable is not null, you still can not use "!", 
+
+Avoid using "!" in nullable variables, objects, and even if you check that variable is not null, you still can not use "!",
 you must create extension.
 
 BAD:
+
 ```dart
    Widget showText(
     BuildContext context,
@@ -260,7 +302,9 @@ BAD:
     return Text(textExample!);
   }
 ```
+
 GOOD:
+
 ```dart
   abstract class AppFormats {
   static const String emptyString = "";
@@ -284,8 +328,10 @@ extension StringsExtensions on String? {
 ```
 
 ## Code Duplicates
+
 To avoid a lot of code duplicate, you must create helper classes with variebles, for paadings, string, durations, border radii,numbers etc.
 BAD:
+
 ```dart
 Widget badExample(BuildContext context) {
     return Column(children: [
@@ -304,7 +350,9 @@ Widget badExample(BuildContext context) {
     ]);
   }
 ```
+
 GOOD:
+
 ```dart
 abstract class AppConstantStrings {
   static const String totalCount = "Total count";
@@ -347,8 +395,10 @@ Widget example(
 ```
 
 ## Imports
+
 You must create library class (we call this class index) that will include all imports and parts of current module.
 BAD:
+
 ```dart
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -368,7 +418,9 @@ class BadExample extends StatelessWidget {
 }
 
 ```
+
 GOOD:
+
 ```dart
 ///create library file (index.dart)
 library example_library;
@@ -380,6 +432,7 @@ import 'package:flutter/material.dart';
 ///and here will be path to your widget/screen/component
 part "'presentation/screens/example.dart';"
 ```
+
 ```dart
 ///On your widget/screen/component you will declare :
 part of example_library;
@@ -395,11 +448,13 @@ class Example extends StatelessWidget {
 ```
 
 ## Empty State
+
 To show some empty widget, we are using SizedBox.shrink() this will creates a box that will become as small as its parent allows.
 But sometimes we use Offstage();
 Offstage hides a widget from view but keeps it in the layout tree, while SizedBox.shrink() creates an invisible widget that takes up no space.
 
 BAD:
+
 ```dart
 
 class EmptyBadExample extends StatelessWidget {
@@ -420,7 +475,9 @@ class EmptyBadExample extends StatelessWidget {
   }
 }
 ```
+
 GOOD:
+
 ```dart
 class EmptyWidgetExample extends StatelessWidget {
   const EmptyWidgetExample({super.key});
@@ -457,13 +514,18 @@ class EmptyOffstageExample extends StatelessWidget {
 
 ```
 
+## Code Examples
+
+You can find practical code examples in the [code-examples](./code-examples) folder. These examples illustrate recommended patterns and best practices for Flutter development in our company.
+
 ## About Weelorum
 
 [<img src="https://www.weelorum.com/wp-content/uploads/2018/11/logo.png" alt="www.weelorum.com">][weelorum]
 
-NEWPROJECT are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline. 
+NEWPROJECT are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
 
 Find out more [here][weelorum] and don't hesitate to [contact us][contact]!
 
-[weelorum]: https://www.weelorum.com
+[weelorum]: https://www.weelorum.com/
+[weelorum blog]: https://weelorum.com/blog/
 [contact]: https://weelorum.com/contact/
