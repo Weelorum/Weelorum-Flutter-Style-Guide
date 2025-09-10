@@ -520,12 +520,12 @@ You can find practical code examples in the [code-examples](./code-examples) fol
 
 ## About Weelorum
 
-[<img src="https://www.weelorum.com/wp-content/uploads/2018/11/logo.png" alt="www.weelorum.com">][weelorum]
+[<img src="https://weelorum.com/wp-content/uploads/2022/05/logo.png" alt="www.weelorum.com">][weelorum]
 
 NEWPROJECT are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
 
-Find out more [here][weelorum] and don't hesitate to [contact us][contact]!
+Find out more [here][weelorum], read our [blog][weelorum_blog], and don't hesitate to [contact us][contact]!
 
 [weelorum]: https://www.weelorum.com/
-[weelorum blog]: https://weelorum.com/blog/
+[weelorum_blog]: https://weelorum.com/blog/
 [contact]: https://weelorum.com/contact/
