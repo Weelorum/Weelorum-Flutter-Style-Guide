@@ -19,7 +19,7 @@ final class ActionClick extends CodeExampleScreenAction {}
 final class ActionShowErrorToast extends CodeExampleScreenAction {
   final String message;
 
-  ActionShowErrorToast({required this.message});
+  ActionShowErrorToast({required final this.message});
 }
 
 final class CodeExampleScreenViewState {
@@ -27,8 +27,8 @@ final class CodeExampleScreenViewState {
   final CodeExampleScreenAction action;
 
   CodeExampleScreenViewState({
-    required this.event,
-    required this.action,
+    required final this.event,
+    required final this.action,
   });
 
   factory CodeExampleScreenViewState.init() {

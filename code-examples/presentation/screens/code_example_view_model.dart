@@ -49,22 +49,22 @@ class CodeExampleScreenViewModel extends BaseViewModel {
   Future<void> _reduceConfirmDialog() async {
     setBusy(true);
 
-    ///TODO: add logic
+    /// TODO: add logic
     setBusy(false);
   }
 
   void _reduceClick() {
-    ///TODO: add logic
+    /// TODO: add logic
     _setAction(
       ActionClick(),
     );
   }
 
   Future<void> _reduceInit() async {
-    ///setBusy is using for loading
+    /// setBusy is using for loading
     setBusy(true);
 
-    ///TODO: add logic
+    /// TODO: add logic
     setBusy(false);
   }
 }

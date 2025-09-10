@@ -1,4 +1,4 @@
-# Weelorum Swift Style Guide
+# Weelorum Flutter Style Guide
 
 -   [Kotlin](https://github.com/Weelorum/Weelorum-Kotlin-Style-Guide)
 -   [Swift](https://github.com/Weelorum/Weelorum-Swift-Style-Guide)
@@ -58,7 +58,7 @@ final class FieldsModel {
 
 ## Typing
 
-All objects, variebles, lists, etc, must include type
+All objects, variables, lists, etc, must include type
 
 BAD:
 
@@ -76,31 +76,31 @@ const String typingValue = 'typing';
 BAD:
 
 ```dart
-var withoutTypeList = [1,2,3,4];
+var withoutTypeList = [1, 2, 3, 4];
 ```
 
 GOOD:
 
 ```dart
-List<int> typedList = <int>[1,2,3,4];
+final List<int> typedList = <int>[1, 2, 3, 4];
 ```
 
 BAD:
 
 ```dart
-void _setElement(){
-    final List<String> stringsList = ["1","2","3",];
-    final String element = stringsList.firstWhere((e) => e == "1");
-  }
+void _setElement() {
+  final List<String> stringsList = ["1", "2", "3"];
+  final String element = stringsList.firstWhere((e) => e == "1");
+}
 ```
 
 GOOD:
 
 ```dart
-void _setElement(){
-    final List<String> stringsList = ["1","2","3",];
-    final String element = stringsList.firstWhere((final String e) => e == "1");
-  }
+void _setElement() {
+  final List<String> stringsList = ["1", "2", "3"];
+  final String element = stringsList.firstWhere((final String e) => e == "1");
+}
 ```
 
 Function & methods typing
@@ -108,31 +108,30 @@ Function & methods typing
 BAD:
 
 ```dart
- _setElement(){
-    final List<String> stringsList = ["1","2","3",];
-    final String element = stringsList.firstWhere((final String e) => e == "1");
-  }
+_setElement() {
+  final List<String> stringsList = ["1", "2", "3"];
+  final String element = stringsList.firstWhere((final String e) => e == "1");
+}
 ```
 
 GOOD:
 
 ```dart
-void _setElement(){
-    final List<String> stringsList = ["1","2","3",];
-    final String element = stringsList.firstWhere((final String e) => e == "1");
-  }
-
+void _setElement() {
+  final List<String> stringsList = ["1", "2", "3"];
+  final String element = stringsList.firstWhere((final String e) => e == "1");
+}
 
 String setElement() {
-    final List<String> stringsList = [
-      "1",
-      "2",
-      "3",
-    ];
-    return stringsList.firstWhere(
-      (final String e) => e == "1",
-    );
-  }
+  final List<String> stringsList = [
+    "1",
+    "2",
+    "3",
+  ];
+  return stringsList.firstWhere(
+    (final String e) => e == "1",
+  );
+}
 ```
 
 ## Line
@@ -146,39 +145,37 @@ Prefer final params in methods & functions
 BAD:
 
 ```dart
- void nonFinalMethod(String id){
+void nonFinalMethod(String id) {
 
-  }
+}
 ```
 
 GOOD:
 
 ```dart
-  void finalMethod(final String id){
+void finalMethod(final String id) {
 
-  }
-
+}
 ```
 
 ## Extensions
 
-When you try add string with some symbols or values or some sum of int or double, etc... you must use extensions.
+When you try to add string with some symbols or values or some sum of int or double, etc... you must use extensions.
 
 BAD:
 
 ```dart
-  Widget showText(
-    BuildContext context,
-    int count,
-  ) {
-    return Text("Total count: $count");
-  }
+Widget showText(
+  BuildContext context,
+  int count,
+) {
+  return Text("Total count: $count");
+}
 ```
 
 GOOD:
 
 ```dart
-
 abstract class AppConstantStrings {
   static const String totalCount = "Total count";
 }
@@ -189,7 +186,7 @@ abstract class AppFormats {
 }
 
 extension StringsExtensions on String {
-  String addColonWithSpaceWithInValue({required final int count}) {
+  String addColonWithSpaceWithInt({required final int count}) {
     return addColonWithSpace() + count.toString();
   }
 
@@ -198,26 +195,24 @@ extension StringsExtensions on String {
   }
 }
 
-   Widget showText(
-    final BuildContext context,
-    final int count,
-  ) {
-    return Text(
-      AppConstantStrings.totalCount.addColonWithSpaceWithInt(count: count),
-    );
-  }
+Widget showText(
+  final BuildContext context,
+  final int count,
+) {
+  return Text(
+    AppConstantStrings.totalCount.addColonWithSpaceWithInt(count: count),
+  );
 }
 ```
 
 ## Comma Putting
 
-You must put comma after every second argue
+You must put comma after every second argument
 
 BAD:
 
 ```dart
-
-void commaBadExample(String one, String, two) {}
+void commaBadExample(String one, String two) {}
 
 class CommaWidget extends StatelessWidget {
   final String one;
@@ -235,11 +230,10 @@ class CommaWidget extends StatelessWidget {
 GOOD:
 
 ```dart
-
-  void commaGoodExample(
-    final String one,
-    final String two,
-  ) {}
+void commaGoodExample(
+  final String one,
+  final String two,
+) {}
 
 class CommaWidget extends StatelessWidget {
   final String one;
@@ -256,7 +250,6 @@ class CommaWidget extends StatelessWidget {
     return const Placeholder();
   }
 }
-
 ```
 
 ## Attachments
@@ -266,89 +259,89 @@ You must check bad result in methods and functions and return something, this wi
 BAD:
 
 ```dart
-  Future<void> attachmentExample({required final List<String>? exampleList}) async {
-    if (exampleList != null && exampleList.isNotEmpty) {
-      exampleList.add('value');
-    } else {
-      debugPrint("List is null or empty");
-    }
+Future<void> attachmentExample({required final List<String>? exampleList}) async {
+  if (exampleList != null && exampleList.isNotEmpty) {
+    exampleList.add('value');
+  } else {
+    debugPrint("List is null or empty");
   }
+}
 ```
 
 GOOD:
 
 ```dart
-   Future<void> attachmentExample({required final List<String>? exampleList}) async {
-    if(exampleList == null || exampleList.isEmpty){
-      return debugPrint("List is null or empty");
-    }
-    exampleList.add('value');
+Future<void> attachmentExample({required final List<String>? exampleList}) async {
+  if (exampleList == null || exampleList.isEmpty) {
+    return debugPrint("List is null or empty");
   }
-
+  exampleList.add('value');
+}
 ```
 
 ## Null Safety
 
-Avoid using "!" in nullable variables, objects, and even if you check that variable is not null, you still can not use "!",
-you must create extension.
+Avoid using "!" in nullable variables, objects, and even if you check that variable is not null, you still can not use "!", you must create extension.
 
 BAD:
 
 ```dart
-   Widget showText(
-    BuildContext context,
-    String? textExample,
-  ) {
-    return Text(textExample!);
-  }
+Widget showText(
+  BuildContext context,
+  String? textExample,
+) {
+  return Text(textExample!);
+}
 ```
 
 GOOD:
 
 ```dart
-  abstract class AppFormats {
+abstract class AppFormats {
   static const String emptyString = "";
 }
 
 extension StringsExtensions on String? {
   String orEmpty() {
-    return this  ?? AppFormats.emptyString;
+    return this ?? AppFormats.emptyString;
   }
 }
 
- Widget showText(
-    final BuildContext context,
-    final String? textExample,
-  ) {
-    return Text(
-      textExample.orEmpty(),
-    );
-  }
-
+Widget showText(
+  final BuildContext context,
+  final String? textExample,
+) {
+  return Text(
+    textExample.orEmpty(),
+  );
+}
 ```
 
 ## Code Duplicates
 
-To avoid a lot of code duplicate, you must create helper classes with variebles, for paadings, string, durations, border radii,numbers etc.
+To avoid a lot of code duplicate, you must create helper classes with variables, for paddings, strings, durations, border radii, numbers etc.
+
 BAD:
 
 ```dart
 Widget badExample(BuildContext context) {
-    return Column(children: [
-      Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-          ),
-          child: Text('bad example', maxLines: 1)),
-      Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-          ),
-          child: Text('bad example 2', maxLines: 3))
-    ]);
-  }
+  return Column(children: [
+    Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      child: Text('bad example', maxLines: 1),
+    ),
+    Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      child: Text('bad example 2', maxLines: 3),
+    ),
+  ]);
+}
 ```
 
 GOOD:
@@ -357,41 +350,44 @@ GOOD:
 abstract class AppConstantStrings {
   static const String totalCount = "Total count";
 }
+
 abstract class AppRadii {
-  ///circular radii
+  /// circular radii
   static const Radius circular12 = Radius.circular(AppDimens.grid_12);
 
-  ///border radii all
+  /// border radii all
   static const BorderRadius borderRadiusAll12 = BorderRadius.all(circular12);
 }
 
-abstract class AppPaddingsAndMargins{
+abstract class AppPaddingsAndMargins {
   static const EdgeInsets all16 = EdgeInsets.all(AppDimens.font_16);
 }
 
-abstract class AppDimens{
-  ///values(int)
+abstract class AppDimens {
+  /// values (int)
   static const int value_2 = 2;
-  ///grids
+
+  /// grids
   static const double grid_12 = 12;
-  ///fonts
+
+  /// fonts
   static const double font_16 = 16;
 }
 
 Widget example(
-    final BuildContext context,
-  ) {
-    return Container(
-      padding: AppPaddingsAndMargins.all16,
-      decoration: const BoxDecoration(
-        borderRadius: AppRadii.borderRadiusAll12,
-      ),
-      child: const Text(
-        AppConstantStrings.totalCount,
-        maxLines: AppDimens.value_2,
-      ),
-    );
-  }
+  final BuildContext context,
+) {
+  return Container(
+    padding: AppPaddingsAndMargins.all16,
+    decoration: const BoxDecoration(
+      borderRadius: AppRadii.borderRadiusAll12,
+    ),
+    child: const Text(
+      AppConstantStrings.totalCount,
+      maxLines: AppDimens.value_2,
+    ),
+  );
+}
 ```
 
 ## Imports
@@ -422,19 +418,19 @@ class BadExample extends StatelessWidget {
 GOOD:
 
 ```dart
-///create library file (index.dart)
+/// create library file (index.dart)
 library example_library;
 
-///imports
+/// imports
 import 'package:flutter/material.dart';
 
-///parts of module
-///and here will be path to your widget/screen/component
-part "'presentation/screens/example.dart';"
+/// parts of module
+/// and here will be path to your widget/screen/component
+part 'presentation/screens/example.dart';
 ```
 
 ```dart
-///On your widget/screen/component you will declare :
+/// On your widget/screen/component you will declare:
 part of example_library;
 
 class Example extends StatelessWidget {
@@ -449,14 +445,13 @@ class Example extends StatelessWidget {
 
 ## Empty State
 
-To show some empty widget, we are using SizedBox.shrink() this will creates a box that will become as small as its parent allows.
-But sometimes we use Offstage();
-Offstage hides a widget from view but keeps it in the layout tree, while SizedBox.shrink() creates an invisible widget that takes up no space.
+To show some empty widget, we are using `SizedBox.shrink()` this will create a box that will become as small as its parent allows.
+But sometimes we use `Offstage()`.
+`Offstage` hides a widget from view but keeps it in the layout tree, while `SizedBox.shrink()` creates an invisible widget that takes up no space.
 
 BAD:
 
 ```dart
-
 class EmptyBadExample extends StatelessWidget {
   const EmptyBadExample({super.key});
 
@@ -494,10 +489,11 @@ abstract class AppConstantStrings {
 
 class EmptyOffstageExample extends StatelessWidget {
   final bool isHideContent;
+
   const EmptyOffstageExample({
     required this.isHideContent,
     super.key,
-});
+  });
 
   @override
   Widget build(final BuildContext context) {
@@ -511,7 +507,6 @@ class EmptyOffstageExample extends StatelessWidget {
     return const Text(AppConstantStrings.totalCount);
   }
 }
-
 ```
 
 ## Code Examples
@@ -522,7 +517,7 @@ You can find practical code examples in the [code-examples](./code-examples) fol
 
 [<img src="https://weelorum.com/wp-content/uploads/2022/05/logo.png" alt="www.weelorum.com">][weelorum]
 
-NEWPROJECT are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
+NEWPROJECT projects are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
 
 Find out more [here][weelorum], read our [blog][weelorum_blog], and don't hesitate to [contact us][contact]!
 
