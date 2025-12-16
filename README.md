@@ -3,7 +3,6 @@
 -   [Kotlin](https://github.com/Weelorum/Weelorum-Kotlin-Style-Guide)
 -   [Swift](https://github.com/Weelorum/Weelorum-Swift-Style-Guide)
 -   [About Weelorum](#about-weelorum)
--   [Weelorum Blog](https://weelorum.com/blog/)
 
 # Weelorum-Flutter-Style-Guide
 
@@ -515,12 +514,4 @@ You can find practical code examples in the [code-examples](./code-examples) fol
 
 ## About Weelorum
 
-[<img src="https://weelorum.com/wp-content/uploads/2022/05/logo.png" alt="www.weelorum.com">][weelorum]
-
 NEWPROJECT projects are maintained by Weelorum. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
-
-Find out more [here][weelorum], read our [blog][weelorum_blog], and don't hesitate to [contact us][contact]!
-
-[weelorum]: https://www.weelorum.com/
-[weelorum_blog]: https://weelorum.com/blog/
-[contact]: https://weelorum.com/contact/
